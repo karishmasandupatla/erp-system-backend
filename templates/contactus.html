@@ -1,0 +1,107 @@
+{% include 'header.html'%}
+<!-- end #menu -->
+<div id="page">
+    <div id="page-bgtop">
+        <div id="page-bgbtm">
+            <div id="page-content">
+                <div id="content">
+                    <div class="post">
+                        <h2 class="title"><a href="#">Contact us </a></h2>
+                        <br>
+                        <p>
+                            If you have any questions regarding the HR ERP System,
+                            please feel free to contact us.
+                        </p>
+                        <hr>
+
+                        <h3>Company Information</h3>
+                        <p><b>Company:</b> Tech Company</p>
+                        <p><b>Location:</b> Pune, Maharashtra, India</p>
+                        <p><b>Email:</b> support@techcompany.com</p>
+                        <p><b>Phone:</b> +91 9876543210</p>
+
+                        <hr>
+                        <h3>Send Message</h3>
+                        <!-- ✅ Show validation errors -->
+                        {% if errors %}
+                        <div style="color:red; background:#ffe0e0; padding:10px; border-radius:5px; margin-bottom:10px;">
+                            <ul>
+                                {% for error in errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        <form action="/contact" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            Name:<br>
+                            <input type="text" name="txtname" required><br><br>
+
+                            Email:<br>
+                            <input type="email" name="txtemail" required><br><br>
+
+                            Message:<br>
+                            <textarea name="txtmessage" rows="4" cols="30" required></textarea><br><br>
+
+                            <input type="submit" value="Send" class="btn btn-primary">
+                        </form>
+
+                        {% if success %}
+                        <p style="color:green; margin-top:10px;"><b>Message sent successfully!</b></p>
+                        {% endif %}
+
+
+                    </div>
+
+
+                    <div style="clear: both;">&nbsp;</div>
+                </div>
+                <!-- end #content -->
+                <div id="sidebar">
+                    <ul>
+                        <li>
+                            <h2>Notice</h2>
+                            <p>HR ERP System for managing employee records quickly and efficiently.</p>
+                        </li>
+                        <li>
+                            <h2>Categories</h2>
+                            <ul>
+                                <li><a href="/adminLogin">Admin Login</a></li>
+                                <li><a href="#">Employee Management</a></li>
+                                <li><a href="#">Employee Registration</a></li>
+                                <li><a href="#">Employee Search</a></li>
+                                <li><a href="#">Employee Update</a></li>
+                                <li><a href="#">Employee Records</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <h2>System Info</h2>
+                            <ul>
+                                <li><a href="#">HR ERP System</a></li>
+                                <li><a href="#">Version 1.0</a></li>
+                                <li><a href="#">Flask Web Application</a></li>
+                                <li><a href="#">MongoDB Database</a></li>
+                                <li><a href="#">Employee Management</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end #sidebar -->
+            </div>
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<!-- end #page -->
+</div>
+<div id="footer">
+    <p>
+        Copyright © 2025 Tech Company. All rights reserved. Designed by Tech Company.
+    </p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

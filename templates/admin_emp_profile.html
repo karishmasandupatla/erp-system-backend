@@ -1,0 +1,99 @@
+{% include 'admin_header.html'%}
+<!-- end #menu -->
+<div id="page">
+    <div id="page-bgtop">
+        <div id="page-bgbtm">
+            <div id="page-content">
+                <div id="content">
+                    <div class="post">
+                        <form action="/adminemp_update" method="post">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <h2 class="title"><a href=""> Employee Profile </a></h2>
+                            <!-- ✅ Show validation errors -->
+                            {% if errors %}
+                            <div style="color:red; background:#ffe0e0; padding:10px; border-radius:5px;">
+                                <ul>
+                                    {% for error in errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+
+                            Emp ID <input type="text" value="{{ recordlist.emp_id }}" name="txtEmpID"
+                                          class="form-control">
+                            Name <input type="text" value="{{ recordlist.name }}" name="txtName" class="form-control">
+                            Email ID <input type="text" value="{{ recordlist.email}}" name="txtEmailID"
+                                            class="form-control">
+                            Mobile<input type="text" value="{{ recordlist.mobile}}" name="txtMobile"
+                                         class="form-control">
+                            Designation <input type="text" value="{{ recordlist.designation }}" name="txtDesignation"
+                                               class="form-control">
+                            Salary<input type="text" value="{{ recordlist.salary }}" name="txtSalary"
+                                         class="form-control">
+
+                            <br>
+
+                            <hr>
+                            <input type="submit" value="Update" class="btn btn-success">
+                            &nbsp; &nbsp; &nbsp;
+                            <a href="/adminemp_delete?eid={{ recordlist.emp_id }}" class="btn btn-danger">Delete</a>
+
+                        </form>
+
+
+                    </div>
+
+
+                    <div style="clear: both;">&nbsp;</div>
+                </div>
+                <!-- end #content -->
+                <div id="sidebar">
+                    <ul>
+                        <li>
+                            <h2>Dashboard</h2>
+                            <center>
+                                <img src="/static/images/admin_icon.png" alt="Admin Icon" width="100px">
+                                <br>
+                                <b>{{session["name"]}}</b>
+                            </center>
+                        </li>
+                        <li>
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="/admindashboard">Admin Dashboard</a></li>
+                                <li><a href="/adminaddemployee">Add Employee</a></li>
+                                <li><a href="/adminshowemployee">View Employees</a></li>
+                                <li><a href="/adminSearchemployee">Search Employee</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+                            <h2>System Info</h2>
+                            <ul>
+                                <li><a href="#">HR ERP System</a></li>
+                                <li><a href="#">Version 1.0</a></li>
+                                <li><a href="#">Flask Web Application</a></li>
+                                <li><a href="#">MongoDB Database</a></li>
+                                <li><a href="#">Employee Management</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- end #sidebar -->
+            </div>
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+    </div>
+</div>
+<!-- end #page -->
+</div>
+<div id="footer">
+    <p>Copyright © 2025 Tech Company. All rights reserved. Designed by Tech Company.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

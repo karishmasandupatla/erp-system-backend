@@ -1,0 +1,12 @@
+# created by virtualenv automatically
+.venv/
+
+# Environment variables - NEVER upload to GitHub
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# PyCharm settings
+.idea/
